@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+    <h3>Agregar camisetas</h3>
+
+    <form method="POST">
+        <input type="text" name="marca" placeholder="Marca">
+        <input type="text" name="talla" placeholder="Talla">
+        <input type="text" name="color" placeholder="Color">
+        <input type="text" name="material" placeholder="Material">
+
+        <button type="submit">Guardar</button>
+    </form>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Talla</th>
+                <th>Color</th>
+                <th>Material</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for camiseta in camisetas %}
+            <tr>
+                <td>{{ camiseta.marca }}</td>
+                <td>{{ camiseta.talla }}</td>
+                <td>{{ camiseta.color }}</td>
+                <td>{{ camiseta.material }}</td>
+                <td><a href="{{ url_for("edit", id=camiseta._id) }}">Editar</a></td>
+                <td><a href="{{ url_for("delete", id=camiseta._id) }}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Editar{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+    <h3>Agregar camisetas</h3>
+    <span><a href="{{ url_for("index") }}">Cancelar</a></span>
+
+    <form method="POST">
+        {% for c in camiseta %}
+        <input value="{{ c.marca }}" type="text" name="marca" placeholder="Marca">
+        <input value="{{ c.talla }}" type="text" name="talla" placeholder="Talla">
+        <input value="{{ c.color }}" type="text" name="color" placeholder="Color">
+        <input value="{{ c.material }}" type="text" name="material" placeholder="Material">
+        {% endfor %}
+        <button type="submit">Actualizar</button>
+    </form>
+
+{% endblock %}
