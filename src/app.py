@@ -4,11 +4,13 @@ from bson.objectid import ObjectId
 from dotenv import load_dotenv
 from os import getenv
 
+uri = "mongodb+srv://user:raul@cluster0.k3acq.mongodb.net/examen_2ev?retryWrites=true&w=majority&appName=Cluster0"
+
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = getenv('SECRET_KEY')
-app.config['MONGO_URI'] = getenv('MONGO_URI')
+app.config['MONGO_URI'] = uri
 
 mongo = PyMongo(app)
 
